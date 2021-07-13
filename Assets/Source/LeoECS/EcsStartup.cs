@@ -1,4 +1,7 @@
 using Leopotam.Ecs;
+using Leopotam.Ecs.UnityIntegration;
+using Source.LeoECS.Components;
+using Source.LeoECS.Systems;
 using UnityEngine;
 
 namespace Source.LeoECS {
@@ -12,13 +15,15 @@ namespace Source.LeoECS {
             _world = new EcsWorld ();
             _systems = new EcsSystems (_world);
 #if UNITY_EDITOR
-            Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create (_world);
-            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create (_systems);
+            EcsWorldObserver.Create (_world);
+            EcsSystemsObserver.Create (_systems);
 #endif
+            
+            
             _systems
-                // register your systems here, for example:
-                // .Add (new TestSystem1 ())
-                // .Add (new TestSystem2 ())
+                .Add (new CreateEntitys())
+                .Add (new PrintSystem())
+                
                 
                 // register one-frame components (order is important), for example:
                 // .OneFrame<TestComponent1> ()
