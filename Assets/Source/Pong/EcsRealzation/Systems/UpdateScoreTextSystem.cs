@@ -5,7 +5,7 @@ namespace Source.Systems
     public class UpdateScoreTextSystem : IEcsInitSystem, IEcsRunSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly Environment _environment = null;
+        private readonly PongEnvironment _pongEnvironment = null;
 
         private readonly EcsFilter<ScoreComponent> _scoreFilter = null;
 
@@ -17,7 +17,7 @@ namespace Source.Systems
 
         public void Run()
         {
-            var canvasEnvironment = _environment.CanvasEnvironment;
+            var canvasEnvironment = _pongEnvironment.CanvasEnvironment;
 
             var scoreComponent = _scoreFilter.Get1(0);
 

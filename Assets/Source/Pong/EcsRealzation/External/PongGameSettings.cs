@@ -2,8 +2,8 @@
 
 namespace Source
 {
-    [CreateAssetMenu(menuName = nameof(GameSettings))]
-    public class GameSettings : ScriptableObject
+    [CreateAssetMenu(menuName = nameof(PongGameSettings))]
+    public class PongGameSettings : ScriptableObject
     {
         [SerializeField] private float minPosition;
         [SerializeField] private float maxPosition;

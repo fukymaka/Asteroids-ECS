@@ -144,6 +144,15 @@
         "com.unity.modules.imgui": "1.0.0"
       }
     },
+    "com.zun010.leoecsextensions": {
+      "version": "https://github.com/zun010/LeoEcsExtensions.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.leopotam.ecs": "https://github.com/Leopotam/ecs.git#develop"
+      },
+      "hash": "7ade7d7e09f52f39342a80b23a17170f7a714d1e"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

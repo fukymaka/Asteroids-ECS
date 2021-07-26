@@ -7,8 +7,8 @@ namespace Source
 {
     public class PongRoot : MonoBehaviour
     {
-        [SerializeField] private Environment environment;
-        [SerializeField] private GameSettings gameSettings;
+        [SerializeField] private PongEnvironment pongEnvironment;
+        [SerializeField] private PongGameSettings pongGameSettings;
 
         private EcsWorld _world;
         private EcsSystems _updateSystems;
@@ -27,8 +27,8 @@ namespace Source
                 .Add(new UpdateScoreTextSystem())
                 .Add(new ShowGameOverMenuSystem())
                 
-                .Inject(environment)
-                .Inject(gameSettings);
+                .Inject(pongEnvironment)
+                .Inject(pongGameSettings);
             
             _updateSystems.Init();
 

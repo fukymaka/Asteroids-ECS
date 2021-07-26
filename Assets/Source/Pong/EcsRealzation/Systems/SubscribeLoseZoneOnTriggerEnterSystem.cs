@@ -5,12 +5,12 @@ namespace Source.Systems
     public class SubscribeLoseZoneOnTriggerEnterSystem : IEcsInitSystem
     {
         private readonly EcsWorld _world = null;
-        private readonly Environment _environment = null;
+        private readonly PongEnvironment _pongEnvironment = null;
         
         public void Init()
         {
-            _environment.LoseZone1.OnTriggerEnter += OnTriggerEnterHandler;
-            _environment.LoseZone2.OnTriggerEnter += OnTriggerEnterHandler;
+            _pongEnvironment.LoseZone1.OnTriggerEnter += OnTriggerEnterHandler;
+            _pongEnvironment.LoseZone2.OnTriggerEnter += OnTriggerEnterHandler;
         }
 
         private void OnTriggerEnterHandler()

@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Source
 {
-    public class Environment : MonoBehaviour
+    public class PongEnvironment : MonoBehaviour
     {
         [SerializeField] private PlatformEcs platform1;
         [SerializeField] private PlatformEcs platform2;
