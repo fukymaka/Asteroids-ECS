@@ -4,7 +4,7 @@ using Zun010.LeoEcsExtensions;
 
 namespace AsteroidsECS
 {
-    public class PlayerInitSystem : IEcsInitSystem
+    public class GameInitSystem : IEcsInitSystem
     {
         private readonly EcsWorld _world = null;
         private readonly PlayerSettings _playerSettings = null;
@@ -17,6 +17,12 @@ namespace AsteroidsECS
         // }
 
         public void Init()
+        {
+            InitPlayer();
+            InitAsteroids();
+        }
+        
+        private void InitPlayer()
         {
             var player = Object.Instantiate(_playerSettings.PlayerPrefab);
 
@@ -31,6 +37,17 @@ namespace AsteroidsECS
                 Sender = player.transform
             };
             _world.NewEntityWith(boundsComponent);
+        }
+        
+        private void InitAsteroids()
+        {
+            var asteroidsSpawnRequest = new AsteroidSpawnRequest
+            {
+                AsteroidGeneration = 1
+            };
+            _world.NewEntityWith(asteroidsSpawnRequest);
+            _world.NewEntityWith(asteroidsSpawnRequest);
+            _world.NewEntityWith(asteroidsSpawnRequest);
         }
     }
 }

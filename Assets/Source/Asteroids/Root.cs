@@ -8,6 +8,7 @@ namespace AsteroidsECS
     {
         [SerializeField] private Environment environment;
         [SerializeField] private PlayerSettings playerSettings;
+        [SerializeField] private AsteroidsSettings asteroidsSettings;
 
         private EcsWorld _world;
         private EcsSystems _updateSystems;
@@ -17,13 +18,16 @@ namespace AsteroidsECS
             _world = new EcsWorld();
 
             _updateSystems = new EcsSystems(_world)
-                .Add(new PlayerInitSystem())
+                .Add(new GameInitSystem())
                 .Add(new PlayerMovementSystem())
                 .Add(new PlayerShootingSystem())
+                .Add(new AsteroidSpawnSystem())
+                .Add(new AsteroidMovementSystem())
                 .Add(new BoundsControlSystem())
                 .Add(new ShootingSystem())
                 .Inject(environment)
-                .Inject(playerSettings);
+                .Inject(playerSettings)
+                .Inject(asteroidsSettings);
 
             _updateSystems.Init();
 

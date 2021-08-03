@@ -22,9 +22,9 @@ namespace AsteroidsECS
             if (_shootFilter.IsEmpty())
                 return;
 
-            foreach (var entity in _shootFilter)
+            foreach (var index in _shootFilter)
             {
-                var shootRequest = _shootFilter.Get1(entity);
+                var shootRequest = _shootFilter.Get1(index);
 
                 var projectile = shootRequest.Projectile;
                 var from = shootRequest.From;
@@ -39,7 +39,7 @@ namespace AsteroidsECS
                     continue;
                 
                 Object.Destroy(projectile.gameObject);
-                _shootFilter.GetEntity(entity).Destroy();
+                _shootFilter.GetEntity(index).Destroy();
             }
         }
         

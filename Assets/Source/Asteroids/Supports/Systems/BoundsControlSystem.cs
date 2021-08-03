@@ -18,9 +18,9 @@ namespace AsteroidsECS
 
         public void Run()
         {
-            foreach (var entity in _boundsFilter)
+            foreach (var index in _boundsFilter)
             {
-                var sender = _boundsFilter.Get1(entity).Sender;
+                var sender = _boundsFilter.Get1(index).Sender;
 
                 KeepOnScreen(sender);
             }
