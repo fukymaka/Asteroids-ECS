@@ -5,7 +5,7 @@ namespace AsteroidsECS
 {
     public class AsteroidMovementSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<AsteroidComponent, AsteroidSpawnRequest> _asteroidFilter = null;
+        private readonly EcsFilter<AsteroidComponent> _asteroidFilter = null;
         
         public void Run()
         {

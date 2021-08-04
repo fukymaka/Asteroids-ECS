@@ -43,8 +43,10 @@ namespace AsteroidsECS
         {
             var asteroidsSpawnRequest = new AsteroidSpawnRequest
             {
-                AsteroidGeneration = 1
+                AsteroidGeneration = 1,
+                SpawnPosition = default
             };
+            _world.NewEntityWith(asteroidsSpawnRequest);
             _world.NewEntityWith(asteroidsSpawnRequest);
             _world.NewEntityWith(asteroidsSpawnRequest);
             _world.NewEntityWith(asteroidsSpawnRequest);

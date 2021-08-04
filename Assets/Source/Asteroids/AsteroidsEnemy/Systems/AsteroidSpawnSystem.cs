@@ -27,11 +27,18 @@ namespace AsteroidsECS
         {
             if (_asteroidSpawnFilter.IsEmpty())
                 return;
-
+            
             var asteroidSpawnRequest = _asteroidSpawnFilter.Get1(0);
-
             var generation = asteroidSpawnRequest.AsteroidGeneration;
             var spawnPosition = asteroidSpawnRequest.SpawnPosition;
+            
+            SpawnAsteroid(generation, spawnPosition);
+            
+            _asteroidSpawnFilter.GetEntity(0).Destroy();
+        }
+
+        private void SpawnAsteroid(int generation, Vector2 spawnPosition)
+        {
             var asteroid = _asteroidsSettings.GetAsteroidPrefab(generation);
 
             if (spawnPosition == default)
@@ -59,8 +66,6 @@ namespace AsteroidsECS
             asteroidEntity.Replace(asteroidComponent);
 
             PutAsteroidInContainer(asteroid);
-            
-            _asteroidSpawnFilter.GetEntity(0).Destroy();
         }
         
         private void CalculateBounds()
