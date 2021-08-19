@@ -26,7 +26,13 @@ namespace AsteroidsECS
             {
                 var shootRequest = _shootFilter.Get1(index);
 
-                var projectile = shootRequest.Projectile;
+                if (shootRequest.PlayerProjectile == null)
+                {
+                    _shootFilter.GetEntity(index).Destroy();
+                    continue;
+                }
+                
+                var projectile = shootRequest.PlayerProjectile;
                 var from = shootRequest.From;
                 var to = shootRequest.To;
                 var speed = shootRequest.ProjectileSpeed;

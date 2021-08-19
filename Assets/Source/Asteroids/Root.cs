@@ -9,6 +9,7 @@ namespace AsteroidsECS
         [SerializeField] private Environment environment;
         [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private AsteroidsSettings asteroidsSettings;
+        [SerializeField] private UfoSettings ufoSettings;
 
         private EcsWorld _world;
         private EcsSystems _updateSystems;
@@ -18,23 +19,37 @@ namespace AsteroidsECS
             _world = new EcsWorld();
 
             _updateSystems = new EcsSystems(_world)
-                .Add(new GameInitSystem())
+                
                 .Add(new PlayerMovementSystem())
                 .Add(new PlayerShootingSystem())
                 .Add(new AsteroidSpawnSystem())
                 .Add(new AsteroidMovementSystem())
+                .Add(new UfoSpawnSystem())
+                .Add(new UfoMovementSystem())
                 .Add(new BoundsControlSystem())
                 .Add(new ShootingSystem())
+                .Add(new GameInitSystem())
+                .Add(new DestroyerSystem())
                 .Inject(environment)
                 .Inject(playerSettings)
-                .Inject(asteroidsSettings);
+                .Inject(asteroidsSettings)
+                .Inject(ufoSettings);
 
             _updateSystems.Init();
+
+            InitCollisionBridge();
 
 #if UNITY_EDITOR
             EcsWorldObserver.Create(_world);
             EcsSystemsObserver.Create(_updateSystems);
 #endif
+        }
+
+        private void InitCollisionBridge()
+        {
+            var collsionBridge = new GameObject("[CollisionBridge]");
+            var collsionBridgeComponent = collsionBridge.AddComponent<CollisionUnityBridge>();
+            collsionBridgeComponent.SetWorld(_world);
         }
 
         private void Update()

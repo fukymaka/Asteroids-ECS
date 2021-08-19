@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Player_Settings
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: -8866381200496479173, guid: 9dc6fb422a8688e4995000b3941f1caf, type: 3}
-  minSpeed: 5
-  maxSpeed: 5
+  minSpeed: 1
+  maxSpeed: 1
   rotationSpeed: 360
-  projectilePrefab: {fileID: 6991562712307567961, guid: 19eab49bbb6b88944b64514d5c0090d1, type: 3}
+  playerProjectilePrefab: {fileID: 6991562712307567961, guid: 19eab49bbb6b88944b64514d5c0090d1, type: 3}
   projectileSpeed: 30

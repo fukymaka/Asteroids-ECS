@@ -32,31 +32,29 @@ namespace AsteroidsECS
 
             var generation = asteroidSpawnRequest.AsteroidGeneration;
             var spawnPosition = asteroidSpawnRequest.SpawnPosition;
-            var asteroid = _asteroidsSettings.GetAsteroidPrefab(generation);
+            var asteroidPrefab = _asteroidsSettings.GetAsteroidPrefab(generation);
 
             if (spawnPosition == default)
                 spawnPosition = GetAsteroidSpawnPos();
 
             var rotation = Quaternion.Euler(0, 0, Random.Range(0, 359));
-            asteroid = Object.Instantiate(asteroid, spawnPosition, rotation);
+            var asteroid = Object.Instantiate(asteroidPrefab, spawnPosition, rotation);
+            asteroid.AsteroidGeneration = generation;
 
-            var asteroidSpeed = _asteroidsSettings.Speed * generation;
+            var asteroidSpeed = _asteroidsSettings.Speed * (int) generation;
 
-            var asteroidComponent = new AsteroidComponent
+            var asteroidMovementRequest = new AsteroidMovementRequest
             {
                 Asteroid = asteroid,
-                Generation = generation,
                 Speed = asteroidSpeed,
-                IsInit = false
             };
-            var asteroidEntity = _world.NewEntityWith(asteroidComponent);
+            _world.NewEntityWith(asteroidMovementRequest);
 
             var boundsComponent = new BoundsComponent
             {
-                Sender = asteroid.transform
+                Target = asteroid.transform
             };
-            asteroidEntity.Replace(boundsComponent);
-            asteroidEntity.Replace(asteroidComponent);
+            _world.NewEntityWith(boundsComponent);
 
             PutAsteroidInContainer(asteroid);
             

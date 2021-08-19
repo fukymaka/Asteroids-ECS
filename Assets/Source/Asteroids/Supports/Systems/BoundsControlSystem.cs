@@ -20,7 +20,13 @@ namespace AsteroidsECS
         {
             foreach (var index in _boundsFilter)
             {
-                var sender = _boundsFilter.Get1(index).Sender;
+                var sender = _boundsFilter.Get1(index).Target;
+
+                if (sender == null)
+                {
+                    _boundsFilter.GetEntity(index).Destroy();
+                    continue;
+                }
 
                 KeepOnScreen(sender);
             }

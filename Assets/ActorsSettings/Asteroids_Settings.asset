@@ -15,4 +15,4 @@ MonoBehaviour:
   asteroidPrefabFirstGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
   asteroidPrefabSecondGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
   asteroidPrefabThirdGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
-  speed: 100
+  speed: 50

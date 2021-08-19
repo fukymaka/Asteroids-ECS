@@ -1,4 +1,5 @@
-﻿using Leopotam.Ecs;
+﻿using AsteroidsECS.Services.Enums;
+using Leopotam.Ecs;
 using UnityEngine;
 using Zun010.LeoEcsExtensions;
 
@@ -20,6 +21,7 @@ namespace AsteroidsECS
         {
             InitPlayer();
             InitAsteroids();
+            InitUfos();
         }
         
         private void InitPlayer()
@@ -34,7 +36,7 @@ namespace AsteroidsECS
 
             var boundsComponent = new BoundsComponent
             {
-                Sender = player.transform
+                Target = player.transform
             };
             _world.NewEntityWith(boundsComponent);
         }
@@ -43,11 +45,16 @@ namespace AsteroidsECS
         {
             var asteroidsSpawnRequest = new AsteroidSpawnRequest
             {
-                AsteroidGeneration = 1
+                AsteroidGeneration = AsteroidGeneration.First
             };
             _world.NewEntityWith(asteroidsSpawnRequest);
             _world.NewEntityWith(asteroidsSpawnRequest);
             _world.NewEntityWith(asteroidsSpawnRequest);
+        }
+
+        private void InitUfos()
+        {
+            _world.NewEntityWith<UfoInitSpawnComponent>();
         }
     }
 }

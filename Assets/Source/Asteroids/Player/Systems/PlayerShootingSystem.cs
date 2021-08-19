@@ -23,18 +23,17 @@ namespace AsteroidsECS
         {
             var playerComponent = _playerFilter.Get1(0);
             var player = playerComponent.Player;
-            var projectile = _playerSettings.ProjectilePrefab;
+            var projectile = _playerSettings.PlayerProjectilePrefab;
             var projectileSpeed = _playerSettings.ProjectileSpeed;
 
             projectile = Object.Instantiate(projectile, player.transform.position, Quaternion.identity);
 
             var shootRequest = new ShootComponent
             {
-                Projectile = projectile,
+                PlayerProjectile = projectile,
                 From = projectile.transform.position,
                 To = player.transform.up + player.transform.position,
                 ProjectileSpeed = projectileSpeed,
-                IsBoundsOut = false
             };
             var projectileEntity = _world.NewEntityWith(shootRequest);
         }

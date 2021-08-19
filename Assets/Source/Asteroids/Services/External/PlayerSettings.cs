@@ -9,7 +9,7 @@ namespace AsteroidsECS
         [SerializeField] private float minSpeed;
         [SerializeField] private float maxSpeed;
         [SerializeField] private float rotationSpeed;
-        [SerializeField] private Projectile projectilePrefab;
+        [SerializeField] private PlayerProjectile playerProjectilePrefab;
         [SerializeField] private float projectileSpeed;
 
         public Player PlayerPrefab => playerPrefab;
@@ -20,7 +20,7 @@ namespace AsteroidsECS
 
         public float RotationSpeed => rotationSpeed;
 
-        public Projectile ProjectilePrefab => projectilePrefab;
+        public PlayerProjectile PlayerProjectilePrefab => playerProjectilePrefab;
 
         public float ProjectileSpeed => projectileSpeed;
     }

@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSettings: {fileID: 11400000, guid: d29f53c250a325f4aa48777ef93a9445, type: 2}
   asteroidsSettings: {fileID: 11400000, guid: 114a6c3addacba949823e7b651d0560a, type: 2}
+  ufoSettings: {fileID: 11400000, guid: 993631defbf5c144e8047346313c4bc0, type: 2}
 --- !u!4 &438854843
 Transform:
   m_ObjectHideFlags: 0
@@ -314,7 +315,7 @@ Camera:
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
-  orthographic: 0
+  orthographic: 1
   orthographic size: 5
   m_Depth: -1
   m_CullingMask:
@@ -339,7 +340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1714308955}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

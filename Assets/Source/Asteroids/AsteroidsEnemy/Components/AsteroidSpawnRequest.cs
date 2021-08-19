@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+﻿using AsteroidsECS.Services.Enums;
+using UnityEngine;
 
 namespace AsteroidsECS
 {
     public struct AsteroidSpawnRequest
     {
-        public int AsteroidGeneration;
+        public AsteroidGeneration AsteroidGeneration;
         public Vector2 SpawnPosition;
     }
 }

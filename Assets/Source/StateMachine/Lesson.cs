@@ -8,5 +8,6 @@ namespace Source.StateMachine
     {
         public int lessonId;
         public List<Step> steps;
+        
     }
 }

@@ -4,10 +4,9 @@ namespace AsteroidsECS
 {
     public struct ShootComponent
     {
-        public Projectile Projectile;
+        public PlayerProjectile PlayerProjectile;
         public Vector2 From;
         public Vector2 To;
         public float ProjectileSpeed;
-        public bool IsBoundsOut;
     }
 }

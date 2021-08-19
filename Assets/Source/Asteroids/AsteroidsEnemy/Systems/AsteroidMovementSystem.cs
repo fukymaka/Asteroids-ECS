@@ -5,27 +5,22 @@ namespace AsteroidsECS
 {
     public class AsteroidMovementSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<AsteroidComponent, AsteroidSpawnRequest> _asteroidFilter = null;
+        private readonly EcsFilter<AsteroidMovementRequest> _asteroidFilter = null;
         
         public void Run()
         {
             if (_asteroidFilter.IsEmpty())
                 return;
 
-            foreach (var index in _asteroidFilter)
-            {
-                ref var asteroidComponent = ref _asteroidFilter.Get1(index);
+            var asteroidMovementRequest = _asteroidFilter.Get1(0);
+            
+            var asteroid = asteroidMovementRequest.Asteroid;
+            var speed = asteroidMovementRequest.Speed;
+            var rigidbody = asteroid.GetComponent<Rigidbody2D>();
+                
+            rigidbody.AddForce(asteroid.transform.up * speed);
 
-                if (asteroidComponent.IsInit) 
-                    continue;
-                
-                var asteroid = asteroidComponent.Asteroid;
-                var speed = asteroidComponent.Speed;
-                var rigidbody = asteroid.GetComponent<Rigidbody2D>();
-                asteroidComponent.IsInit = true;
-                
-                rigidbody.AddForce(asteroid.transform.up * speed);
-            }
+            _asteroidFilter.GetEntity(0).Destroy();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using AsteroidsECS.Services.Enums;
+using UnityEngine;
 
 namespace AsteroidsECS
 {
@@ -21,15 +22,15 @@ namespace AsteroidsECS
 
         // public float MAXStartSpeed => maxStartSpeed;
 
-        public Asteroid GetAsteroidPrefab(int asteroidGeneration)
+        public Asteroid GetAsteroidPrefab(AsteroidGeneration asteroidGeneration)
         {
             switch (asteroidGeneration)
             {
-                case 1:
+                case AsteroidGeneration.First:
                     return asteroidPrefabFirstGen;
-                case 2:
+                case AsteroidGeneration.Second:
                     return asteroidPrefabSecondGen;
-                case 3:
+                case AsteroidGeneration.Third:
                     return asteroidPrefabThirdGen;
                 default:
                     Debug.Log("Generation doesn't exist!");

@@ -4,6 +4,6 @@ namespace AsteroidsECS
 {
     public struct BoundsComponent
     {
-        public Transform Sender;
+        public Transform Target;
     }
 }
