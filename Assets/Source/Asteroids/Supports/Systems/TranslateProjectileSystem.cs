@@ -5,7 +5,7 @@ using Object = UnityEngine.Object;
 
 namespace AsteroidsECS
 {
-    public class ShootingSystem : IEcsRunSystem, IEcsInitSystem
+    public class TranslateProjectileSystem : IEcsRunSystem, IEcsInitSystem
     {
         private readonly EcsFilter<ShootComponent> _shootFilter = null;
         
@@ -26,13 +26,13 @@ namespace AsteroidsECS
             {
                 var shootRequest = _shootFilter.Get1(index);
 
-                if (shootRequest.PlayerProjectile == null)
+                if (shootRequest.Projectile == null)
                 {
                     _shootFilter.GetEntity(index).Destroy();
                     continue;
                 }
                 
-                var projectile = shootRequest.PlayerProjectile;
+                var projectile = shootRequest.Projectile;
                 var from = shootRequest.From;
                 var to = shootRequest.To;
                 var speed = shootRequest.ProjectileSpeed;

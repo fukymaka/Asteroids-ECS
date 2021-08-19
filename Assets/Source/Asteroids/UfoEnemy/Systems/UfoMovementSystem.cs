@@ -1,11 +1,13 @@
 ﻿using Leopotam.Ecs;
 using UnityEngine;
+using Zun010.LeoEcsExtensions;
 
 namespace AsteroidsECS
 {
     public class UfoMovementSystem : IEcsRunSystem
     {
         private readonly UfoSettings _ufoSettings = null;
+        private readonly EcsWorld _world = null;
         private readonly EcsFilter<UfoMovementComponent> _ufoMovementFilter = null;
         
         public void Run()
@@ -45,7 +47,12 @@ namespace AsteroidsECS
             }
 
             ufoMovementComponent.targetMovement = GetNextPoint();
-            // Shoot();
+
+            var shootRequest = new UfoShootRequest
+            {
+                Ufo = ufo
+            };
+            _world.NewEntityWith(shootRequest);
         }
         
         private Vector3 GetNextPoint()

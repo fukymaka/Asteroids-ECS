@@ -8,7 +8,10 @@ namespace AsteroidsECS
     public class Asteroid : Actor
     {
         public override ActorType ActorType { get; } = ActorType.Asteroid;
-        public override PossibleCollisions PossibleCollisions { get; } = PossibleCollisions.Player | PossibleCollisions.Ufo | PossibleCollisions.PlayerProjectile;
+        public override PossibleCollisions PossibleCollisions { get; } = PossibleCollisions.Player | 
+                                                                         PossibleCollisions.Ufo | 
+                                                                         PossibleCollisions.PlayerProjectile | 
+                                                                         PossibleCollisions.UfoProjectile;
         public AsteroidGeneration AsteroidGeneration { get; set; } = AsteroidGeneration.First;
     }
 }

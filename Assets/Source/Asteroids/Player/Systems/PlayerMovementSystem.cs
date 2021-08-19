@@ -15,6 +15,7 @@ namespace AsteroidsECS
 
             var playerComponent = _playerFilter.Get1(0);
             var player = playerComponent.Player;
+            Debug.Log(player.transform.position);
             
             var minSpeed = _playerSettings.MinSpeed;
             var maxSpeed = _playerSettings.MaxSpeed;

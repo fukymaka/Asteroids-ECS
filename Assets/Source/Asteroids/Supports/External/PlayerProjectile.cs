@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AsteroidsECS
 {
-    public class PlayerProjectile : Actor
+    public class PlayerProjectile : Projectile
     {
         public override ActorType ActorType { get; } = ActorType.PlayerProjectile;
         public override PossibleCollisions PossibleCollisions { get; } = PossibleCollisions.Asteroid | PossibleCollisions.Ufo;

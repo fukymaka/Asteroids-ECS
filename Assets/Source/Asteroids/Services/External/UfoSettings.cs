@@ -10,12 +10,14 @@ namespace AsteroidsECS
         [SerializeField] private float minSpeed;
         [SerializeField] private float maxSpeed;
         [SerializeField] private UfoProjectile projectilePrefab;
+        [SerializeField] private float projectileSpeed;
         [SerializeField] private int ufoIntervalSpawn;
 
         public UfoProjectile ProjectilePrefab => projectilePrefab;
         public int UfoIntervalSpawn => ufoIntervalSpawn;
         public float MinSpeed => minSpeed;
         public float MaxSpeed => maxSpeed;
+        public float ProjectileSpeed => projectileSpeed;
 
         public Ufo GetUfoPrefab(UfoType ufoType)
         {

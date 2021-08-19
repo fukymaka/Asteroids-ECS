@@ -30,12 +30,12 @@ namespace AsteroidsECS
 
             var shootRequest = new ShootComponent
             {
-                PlayerProjectile = projectile,
+                Projectile = projectile,
                 From = projectile.transform.position,
                 To = player.transform.up + player.transform.position,
                 ProjectileSpeed = projectileSpeed,
             };
-            var projectileEntity = _world.NewEntityWith(shootRequest);
+            _world.NewEntityWith(shootRequest);
         }
     }
 }
