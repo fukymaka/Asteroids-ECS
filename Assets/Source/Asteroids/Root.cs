@@ -1,3 +1,4 @@
+using AsteroidsECS.UI.Systems;
 using Leopotam.Ecs;
 using Leopotam.Ecs.UnityIntegration;
 using UnityEngine;
@@ -6,7 +7,7 @@ namespace AsteroidsECS
 {
     public class Root : MonoBehaviour
     {
-        [SerializeField] private Environment environment;
+        [SerializeField] private UiEnvironment uiEnvironment;
         [SerializeField] private PlayerSettings playerSettings;
         [SerializeField] private AsteroidsSettings asteroidsSettings;
         [SerializeField] private UfoSettings ufoSettings;
@@ -19,7 +20,7 @@ namespace AsteroidsECS
             _world = new EcsWorld();
 
             _updateSystems = new EcsSystems(_world)
-                
+                .Add(new StartScreenSystem())
                 .Add(new PlayerMovementSystem())
                 .Add(new PlayerShootingSystem())
                 .Add(new AsteroidSpawnSystem())
@@ -31,7 +32,7 @@ namespace AsteroidsECS
                 .Add(new TranslateProjectileSystem())
                 .Add(new GameInitSystem())
                 .Add(new DestroyerSystem())
-                .Inject(environment)
+                .Inject(uiEnvironment)
                 .Inject(playerSettings)
                 .Inject(asteroidsSettings)
                 .Inject(ufoSettings);

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Asteroids_Settings
   m_EditorClassIdentifier: 
   asteroidPrefabFirstGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
-  asteroidPrefabSecondGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
-  asteroidPrefabThirdGen: {fileID: 5199024954663321070, guid: 51a23553068e7c54b96af8820ff70590, type: 3}
+  asteroidPrefabSecondGen: {fileID: 5199024954663321070, guid: a6e97ba5e8dd0404c830e4cf1b298126, type: 3}
+  asteroidPrefabThirdGen: {fileID: 5199024954663321070, guid: ff17a5e16c2910d48a5a7d0be0c8951d, type: 3}
   speed: 50

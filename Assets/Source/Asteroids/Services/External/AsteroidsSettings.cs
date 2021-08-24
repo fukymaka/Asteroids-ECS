@@ -10,18 +10,7 @@ namespace AsteroidsECS
         [SerializeField] private Asteroid asteroidPrefabSecondGen;
         [SerializeField] private Asteroid asteroidPrefabThirdGen;
         [SerializeField] private float speed;
-        // [SerializeField] private float maxStartSpeed;
-
-        // public Asteroid AsteroidPrefabFirstGen => asteroidPrefabFirstGen;
-        //
-        // public Asteroid AsteroidPrefabSecondGen => asteroidPrefabSecondGen;
-        //
-        // public Asteroid AsteroidPrefabThirdGen => asteroidPrefabThirdGen;
-
         public float Speed => speed;
-
-        // public float MAXStartSpeed => maxStartSpeed;
-
         public Asteroid GetAsteroidPrefab(AsteroidGeneration asteroidGeneration)
         {
             switch (asteroidGeneration)

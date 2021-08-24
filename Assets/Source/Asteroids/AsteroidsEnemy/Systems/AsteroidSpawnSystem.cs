@@ -16,7 +16,8 @@ namespace AsteroidsECS
         private GameObject _asteroidContainer;
         private float _boundHeight;
         private float _boundWidth;
-        private float _clearZoneRadius = 3f;
+        
+        private const float ClearZoneRadius = 3f;
 
         public void Init()
         {
@@ -73,7 +74,7 @@ namespace AsteroidsECS
             var startPos = Vector2.zero;
 
             //todo
-            while (Math.Abs(startPos.x) < _clearZoneRadius && Math.Abs(startPos.y) < _clearZoneRadius)
+            while (Math.Abs(startPos.x) < ClearZoneRadius && Math.Abs(startPos.y) < ClearZoneRadius)
             {
                 startPos.x = Random.Range(-_boundWidth, _boundWidth);
                 startPos.y = Random.Range(-_boundHeight, _boundHeight);

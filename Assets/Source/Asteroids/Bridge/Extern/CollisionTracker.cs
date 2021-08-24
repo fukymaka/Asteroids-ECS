@@ -14,7 +14,7 @@ namespace AsteroidsECS
         {
             _collisionBridge = FindObjectOfType<CollisionUnityBridge>();
         }
-
+    
         private void OnTriggerEnter2D(Collider2D collider)
         {
             if (!TryGetComponent(out Actor initiator)) 

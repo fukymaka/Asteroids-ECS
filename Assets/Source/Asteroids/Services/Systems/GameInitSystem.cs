@@ -1,27 +1,27 @@
-﻿using AsteroidsECS.Services.Enums;
+﻿using AsteroidsECS.Services.Components;
+using AsteroidsECS.Services.Enums;
 using Leopotam.Ecs;
 using UnityEngine;
 using Zun010.LeoEcsExtensions;
 
 namespace AsteroidsECS
 {
-    public class GameInitSystem : IEcsInitSystem
+    public class GameInitSystem : IEcsRunSystem
     {
-        private readonly EcsWorld _world = null;
         private readonly PlayerSettings _playerSettings = null;
-        // private readonly EcsFilter<PlayerInitRequest> _playerInitFilter = null;
-        
-        // public void Run()
-        // {
-        //     if (_playerInitFilter.IsEmpty())
-        //         return;    
-        // }
+        private readonly EcsWorld _world = null;
+        private readonly EcsFilter<StartGameRequest> _startGameFilter = null;
 
-        public void Init()
+        public void Run()
         {
+            if (_startGameFilter.IsEmpty())
+                return;
+            
             InitPlayer();
             InitAsteroids();
             InitUfos();
+            
+            _startGameFilter.GetEntity(0).Destroy();
         }
         
         private void InitPlayer()

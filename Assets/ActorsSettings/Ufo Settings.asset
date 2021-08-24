@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ufoFirstType: {fileID: 4876624259484605127, guid: 1b114777214c5354a8c8c9f7cbf2f1e5, type: 3}
   ufoSecondType: {fileID: 7038258658338742021, guid: b2555ca4d02b9124ca341d61edfc75a7, type: 3}
-  minSpeed: 100
-  maxSpeed: 200
+  minSpeed: 20
+  maxSpeed: 40
   projectilePrefab: {fileID: 9036285981753460772, guid: 6a7f7a9d3f77f0f4080fc9c3e25bd806, type: 3}
+  projectileSpeed: 5
   ufoIntervalSpawn: 3
